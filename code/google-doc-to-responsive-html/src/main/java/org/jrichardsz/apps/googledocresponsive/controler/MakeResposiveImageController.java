@@ -38,35 +38,6 @@ public class MakeResposiveImageController implements ActionListener{
 		openButton.addActionListener(this);
 		executeButton.addActionListener(this);		
 	}
-	
-	public static void main(String[] args) throws IOException {
-		
-		File input = new File("C:\\Users\\RM-RMC\\Desktop\\no-responsive\\initial.html");
-		Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
-		
-		Elements img = doc.getElementsByTag("img");
-		
-		 for (Element imgElement : img){
-			 
-			 imgElement.attr("style", "max-width:100% !important; height:auto; display:block;");
-			 
-			 //save html sstring
-			 String htmlOfImage = imgElement.toString();
-			
-			 Element span = imgElement.parent();
-			
-			 //get parent of span
-			 Element parestOfSpan = span.parent();
-			 
-			 span.remove();	
-			 
-			 parestOfSpan.append(htmlOfImage);
-			 
-		 }
-		 
-		 System.out.println(doc.toString());
-		
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
